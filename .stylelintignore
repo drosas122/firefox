@@ -1,5 +1,0 @@
-# Please DO NOT add more third party files to this file.
-# They should be added to tools/rewriting/ThirdPartyPaths.txt instead.
-#
-# Please also DO NOT add  generated files that are for some reason checked
-# into source - add them 

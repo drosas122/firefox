@@ -1,2 +1,0 @@
- listener of window status changes.  nsIWindowMediatorListener aListener);
-

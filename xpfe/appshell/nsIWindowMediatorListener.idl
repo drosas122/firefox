@@ -1,2 +1,0 @@
-    void onCloseWindow(in nsIAppWindow window);
-};

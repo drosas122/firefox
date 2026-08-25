@@ -1,4 +1,0 @@
-# Prevent line ending normalization to follow the mercurial behavior
-* -text
-
-# To show the test headers in WPT metadata diffs, you can combine the attributes below with 

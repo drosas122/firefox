@@ -1,15 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
-# License, v. 2.0. If a copy of the MPL was not distributed with this
-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
-import json
-import os
-import shlex
-import subprocess
-import sys
-
-old_bytecode = sys.dont_write_bytecode
-sys.dont_write_bytecode = True
+old_bytecode = sys.dont_write_bytecodesys.dont_write_bytecode = True
 
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), "mach"))
 
@@ -45,21 +34,4 @@ def Settings(**kwargs):
 
 
 def FlagsForFile(filename):
-    output = subprocess.check_output([path, "compileflags", filename])
-    output = output.decode("utf-8")
-
-    flag_list = shlex.split(output)
-
-    # This flag is added by Fennec for android build and causes ycmd to fail to parse the file.
-    # Removing this flag is a workaround until ycmd starts to handle this flag properly.
-    # https://github.com/Valloric/YouCompleteMe/issues/1490
-    final_flags = [x for x in flag_list if not x.startswith("-march=armv")]
-
-    if _is_likely_cpp_header(filename):
-        final_flags += ["-x", "c++"]
-
-    return {"flags": final_flags, "do_cache": True}
-
-
-if __name__ == "__main__":
-    print(FlagsForFile(sys.argv[1]))
+    output = subprocess.check_output([path, "compileflags", 
